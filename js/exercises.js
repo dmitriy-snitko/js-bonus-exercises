@@ -63,10 +63,9 @@ const getYoungestUsers = users => {
   2. В массиве users отфильтровать всех по полу, сначала female потом male 
 */
 
-const sortedBySex = (users, sex) => users.filter(user => user.sex === sex);
+const sortedBySex = (users) => [...users].sort((a, b) => a.sex.localeCompare(b.sex));
 
-// console.log(sortedBySex(users, FEMALE));
-// console.log(sortedBySex(users, MALE));
+console.log(sortedBySex(users));
 
 // ==============================================================================================
 
