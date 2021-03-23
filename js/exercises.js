@@ -41,7 +41,7 @@ const getYoungestUsers = users => {
   if (youngestUsers.length > 1) {
     const usersName = youngestUsers
       .flatMap(user => user.name)
-      .reduce((firstName, secondName) => `${firstName}, ${secondName}`);
+      .reduce((accNames, name) => `${accNames}, ${name}`);
     
     console.log(`${usersName} самые молодые им ${youngestUsers[0].age} ${years}.`)
   } else {
@@ -55,7 +55,7 @@ const getYoungestUsers = users => {
   return youngestUsers;
 };
 
-// console.log(getYoungestUsers(users));
+console.log(getYoungestUsers(users));
 
 // ==============================================================================================
 
@@ -65,7 +65,7 @@ const getYoungestUsers = users => {
 
 const sortedBySex = (users) => [...users].sort((a, b) => a.sex.localeCompare(b.sex));
 
-console.log(sortedBySex(users));
+// console.log(sortedBySex(users));
 
 // ==============================================================================================
 
