@@ -47,7 +47,7 @@ const getYoungestUsers = users => {
   } else {
     youngestUsers = youngestUsers[0];
 
-    youngestUsers.sex === 'male'
+    youngestUsers.sex === MALE
     ? console.log(`${youngestUsers.name} самый молодой и ему ${youngestUsers.age} ${years}.`)
     : console.log(`${youngestUsers.name} самая молодая и ей ${youngestUsers.age} ${years}.`)
   }
