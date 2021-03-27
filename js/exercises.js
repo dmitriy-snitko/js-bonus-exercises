@@ -5,7 +5,7 @@ const users = [
   { name: "Олег", sex: "male", age: 20 },
   { name: "Марина", sex: "female", age: 23 },
   { name: "Оксана", sex: "female", age: 17 },
-  { name: "Алексей", sex: "male", age: - 8 },
+  { name: "Алексей", sex: "male", age: 8 },
   { name: "Антон", sex: "male", age: 47 },
   { name: "Валерия", sex: "female", age: 50 },
   { name: "Екатерина", sex: "female", age: 12 }
@@ -77,7 +77,7 @@ const findeUser = ((users, name) => {
   const user = users.find(user => user.name === name);
 
   if (!user) {
-    return `Пользователь не найден.`
+    return `Пользователь ${name} не найден.`
   }
 
   return user;
@@ -94,21 +94,20 @@ const findeUser = ((users, name) => {
 */
 
 const changeUserAge = users => {
-  const usersWhithChangedAge = [...users];
-  const UserWhithNegativeAge = usersWhithChangedAge.find(user => user.age < 0);
+  const UserWhithNegativeAge = users.find(user => user.age < 0);
 
   if (UserWhithNegativeAge) {
     return (`У пользователя ${UserWhithNegativeAge.name} возраст меньше ноля.`);
     
   }
 
-  usersWhithChangedAge.forEach(user => user.sex === MALE
-    ? user.age += 10
-    : user.age -= 5);
-
-  return usersWhithChangedAge;
+  return users.map(user => user.sex === MALE
+    ? { name: user.name, sex: user.sex, age: user.age + 10 }
+    : { name: user.name, sex: user.sex, age: user.age - 5 }
+  )
 };
 
-// console.log(changeUserAge(users));
+console.log(changeUserAge(users));
+console.log(users);
 
 // ==============================================================================================
